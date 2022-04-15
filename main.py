@@ -12,6 +12,7 @@ python 2.7
 环境配置参考：https://zhuanlan.zhihu.com/p/61312218
 需要安装Chrome驱动，并且去除与webdriver_manager有关的代码
 改为driver = webdriver.Chrome()
+并且加上sys.setdefaultencoding('utf-8')
 '''
 import pandas
 from selenium import webdriver
@@ -85,9 +86,11 @@ def get_content():
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-
+    try:
         get_content()
         print("爬取成功")
+    except:
+        print("爬取失败")
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
